@@ -1,0 +1,8 @@
+/.obsidian
+/node_modules
+*.pdf
+/.idea/
+/.yarn/install-state.gz
+/slidev-theme-penguin-rtl/.yarn/install-state.gz
+/slidev-theme-penguin-rtl/.yarnrc.yml
+/.yarnrc.yml
