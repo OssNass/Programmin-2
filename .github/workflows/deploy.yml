@@ -37,7 +37,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install Main Dependencies
-        run: pnpm install
+        run: pnpm install && cd slidev-theme-penguin-rtl && pnpm install
 
 
       - name: Install Playwright Browsers (for PDF Export)
