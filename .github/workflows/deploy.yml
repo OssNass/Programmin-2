@@ -56,7 +56,7 @@ jobs:
           # dependencies and warm up the cache. We then delete it.
           echo "Warming up Vite cache for Playwright..."
           echo "# Warmup" > warmup.md
-          pnpm slidev export warmup.md > /dev/null 2>&1 || true
+          pnpm slidev export warmup.md --with-clicks > /dev/null 2>&1 || true
           rm warmup.md warmup.pdf || true
           # -----------------------------------
 
