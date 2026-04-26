@@ -200,3 +200,85 @@ hideInToc: true
 - نريد من البرنامج إمكانية إدخال الطالب من لوحة المفاتيح أو من ملف 
 - في تم الإدخال من لوحة المفاتيح يجب إضافة الطالب إلى الملف
 - قراءة وطبع معلومات كل طالب في الملف
+---
+
+# مثال عام
+<div grid="~ cols-2 gap-2">
+<div>
+
+- بفرض لدينا سجل يعبر عن الطالب بما يلي من المعلومات:
+	- الرقم الجامعي (من نو ع long)
+	- الاسم الأول (من نوع string)
+	- الكنية (من نوع string)
+	- معدل شهادة البكالوريا (من نوع float)
+</div>
+<div>
+
+```cpp
+struct student{
+	long id;
+	string firstName;
+	string lastName;
+	float points
+};
+```
+</div>
+</div>
+
+- المطلوب:
+	- كتابة تابع لإدخال معلومات طالب من المستخدم 
+	- طباعة سجل طالب على الشاشة
+	- كتاب سجل طالب على ملف
+	- ققراءة سجل طالب من ملف
+--- 
+
+```yaml
+hideInToc: true
+```
+# مثال عام
+
+- إدخال معلومات طالب من قبل المستخدم:
+```cpp
+studednt input(){
+	student c;
+	cin>>c.id>>c.firstName>>c.lastName>>c.points;
+	return c;
+}
+```
+- طباعة معلومات الطالب على الشاشة
+```cpp
+void output(student &c){
+	cout<<"Student info:\n\t"
+	<<"Id: "<<c.id<<"\n"
+	<<"First Name: "<<c.firstName<<"\n"
+	<<"Last Name: "<<c.lastName<<"\n"
+	<<"Points: "<<c.points<<endl;
+}
+```
+تم اعتماد تمرير السجل بالمرجع وليس بالقيمة تجنبًا لاستنساخ القيم وهدر الذاكرة
+--- 
+
+```yaml
+hideInToc: true
+```
+# مثال عام
+
+- إدخال معلومات طالب من قبل المستخدم:
+```cpp
+studednt input(ifstream &fin){
+	student c;
+	fin>>c.id>>c.firstName>>c.lastName>>c.points;
+	return c;
+}
+```
+- طباعة معلومات الطالب على الشاشة
+```cpp
+void output(student &c,ofstream &out){
+	out<<"Student info:\n\t"
+	<<"Id: "<<c.id<<"\n"
+	<<"First Name: "<<c.firstName<<"\n"
+	<<"Last Name: "<<c.lastName<<"\n"
+	<<"Points: "<<c.points<<endl;
+}
+```
+تم اعتماد التمرير بالمرجع وليس بالقيمة تجنبًا لاستنساخ القيم وهدر الذاكرة
