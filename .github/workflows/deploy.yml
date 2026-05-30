@@ -29,12 +29,13 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
+          run_install: false
 
       - name: Setup Node.js 24
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'pnpm'
+
 
       - name: Install Main Dependencies
         run: pnpm install && cd slidev-theme-penguin-rtl && pnpm install
