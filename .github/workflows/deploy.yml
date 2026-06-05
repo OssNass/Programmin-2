@@ -43,7 +43,7 @@ jobs:
 
 
       - name: Install Playwright Browsers (for PDF Export)
-        run: sudo pnpm exec playwright install --with-deps chromiu
+        run: pnpm exec playwright install --with-deps chromiu
 
       - name: Build Slidev Markdown files
         run: |
