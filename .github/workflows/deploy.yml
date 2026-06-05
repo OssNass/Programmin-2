@@ -37,6 +37,8 @@ jobs:
           cache: 'pnpm'
 
       - name: Install Main Dependencies
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
         run: pnpm install && cd slidev-theme-penguin-rtl && pnpm install
 
 
