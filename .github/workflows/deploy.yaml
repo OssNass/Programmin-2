@@ -53,9 +53,16 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      # Playwright requires specific system-level dependencies in Ubuntu
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps chromium
+      - name: Install Playwright Chromium & System Deps
+        env:
+          DEBIAN_FRONTEND: noninteractive
+          PLAYWRIGHT_DOWNLOAD_HOST: https://playwright.azureedge.net
+        run: |
+          echo "Installing Chromium browser binary..."
+          pnpm exec playwright install chromium
+
+          echo "Installing system dependencies for Chromium..."
+          pnpm exec playwright install-deps chromium
 
       - name: Build and Export Lectures
         run: |
