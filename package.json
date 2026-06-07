@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@alvarosabu/ui": "^3.1.0",
     "@slidev/cli": "^52.4.0",
     "@slidev/theme-seriph": "^0.25.0",
     "mermaid": "^11.12.3",
@@ -16,10 +17,10 @@
   "author": "Ossama Nasser <ossnass@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "playwright-chromium": "^1.56.1",
     "sass-embedded": "^1.93.3",
     "vite": "^8.0.3",
-    "vite-svg-loader": "^5.1.1",
-    "playwright-chromium": "^1.56.1"
+    "vite-svg-loader": "^5.1.1"
   },
   "scripts": {
     "dev": "slidev --open",
