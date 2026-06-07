@@ -29,6 +29,9 @@ importers:
       slidev-theme-neversink:
         specifier: ^0.4.0
         version: 0.4.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.35)(markdown-it@14.2.0)(typescript@5.9.3)(vite@8.0.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.19.15)(esbuild@0.27.4)(jiti@1.21.7)(sass-embedded@1.98.0)(sass@1.98.0)(yaml@2.8.2))(vue@3.5.35(typescript@5.9.3))
+      slidev-theme-penguin-rtl:
+        specifier: link:slidev-theme-penguin-rtl
+        version: link:slidev-theme-penguin-rtl
       slidev-theme-rainforest:
         specifier: ^0.0.17
         version: 0.0.17(autoprefixer@10.4.27(postcss@8.5.15))(postcss@8.5.15)(tailwindcss@3.4.19(yaml@2.8.2))(yaml@2.8.2)
