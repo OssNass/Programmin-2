@@ -1,9 +1,3 @@
-Here is your complete GitHub Actions workflow file converted directly to PNPM 11, maintaining your exact deployment flow, HTML indexing strategy, artifact archiving structure, and branch targets.
-
-I have also preserved the Playwright blank page warmup trick seamlessly integrated into your loop style, ensuring your Slidev compilation remains stable and doesn't crash on the initial export.
-.github/workflows/deploy.yml
-YAML
-
 name: Build Slidev lectures (HTML + PDF), deploy Pages, and upload artifacts
 
 on:
