@@ -36,13 +36,13 @@ jobs:
           node-version: 22
           cache: 'pnpm'
 
-      - name: Install Main Dependencies
-        run: pnpm install
-
       - name: Install Custom Theme Dependencies
         run: |
           cd slidev-theme-penguin-rtl
           pnpm install
+
+      - name: Install Main Dependencies
+        run: pnpm install
 
       - name: Install Playwright Browsers (for PDF Export)
         run: pnpm exec playwright install --with-deps chromium
@@ -60,7 +60,7 @@ jobs:
           # dependencies and warm up the cache. We then delete it.
           echo "Warming up Vite cache for Playwright..."
           echo "# Warmup" > warmup.md
-          pnpm slidev export warmup.md > /dev/null 2>&1 || true
+          pnpm slidev export warmup.md --with-clicks > /dev/null 2>&1 || true
           rm warmup.md warmup.pdf || true
           # -----------------------------------
 
@@ -72,11 +72,11 @@ jobs:
             echo "Processing $filename..."
 
             # 1. Build the browsable HTML
-            pnpm slidev build "$file" --base /${{ github.event.repository.name }}/$filename/ --out dist/$filename
+            pnpm slidev build "$file" --base /${{ github.event.repository.name }}/$filename/ --out dist/$filename --with-clicks
 
             # 2. Export the downloadable PDF
             # Added --wait 1500 to give the SPA an extra 1.5 seconds to hydrate fonts/components
-            pnpm slidev export "$file" --output dist/$filename.pdf --wait 1500
+            pnpm slidev export "$file" --output dist/$filename.pdf --wait 1500 --with-clicks
 
             # 3. Append links to the index file
             echo "<li><strong>$filename</strong>: <a href=\"$filename/\">View Slides</a> | <a href=\"$filename.pdf\">Download PDF</a></li>" >> dist/index.html
