@@ -41,6 +41,9 @@ importers:
       slidev-theme-viplay:
         specifier: ^0.1.3
         version: 0.1.3(@iconify-json/ic@1.2.4)(@slidev/client@52.14.1(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@nuxt/kit@3.21.2)(@vue/compiler-sfc@3.5.35)(vite@8.0.3(@emnapi/core@1.10.0)(@emnapi/runtime@1.10.0)(@types/node@22.19.15)(esbuild@0.27.4)(jiti@1.21.7)(sass-embedded@1.98.0)(sass@1.98.0)(yaml@2.8.2)))(vue@3.5.30(typescript@5.9.3))
+      styles:
+        specifier: link:@alvarosabu/ui/styles
+        version: link:@alvarosabu/ui/styles
     devDependencies:
       playwright-chromium:
         specifier: ^1.56.1
