@@ -41,6 +41,7 @@
     "@alvarosabu/ui": "3.0.0",
     "@slidev/types": "0.50.0-beta.5",
     "playwright": "^1.60.0",
+    "playwright-chromium": "^1.60.0",
     "prism-theme-vars": "^0.2.5",
     "vite-svg-loader": "^5.1.0"
   },
