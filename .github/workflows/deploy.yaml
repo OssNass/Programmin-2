@@ -38,13 +38,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Setup pnpm cache
-        uses: actions/cache@v4
-        with:
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install Main Dependencies
         run: pnpm install && cd slidev-theme-penguin-rtl && pnpm install
 
