@@ -25,16 +25,32 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      # 1. Install pnpm AND enable its standalone caching
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
+          run_install: false # Prevents it from running automatic installs prematurely
 
+      # 2. Set up Node without the 'cache' property
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
+
+      # 3. Get the pnpm cache directory manually and use GitHub's native cache action
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Setup pnpm cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install Main Dependencies
         run: pnpm install && cd slidev-theme-penguin-rtl && pnpm install
@@ -68,12 +84,10 @@ jobs:
             echo "Processing $filename..."
 
             # 1. Build the browsable HTML
-            pnpm slidev build "$file" --base /${{ github.event.repository.name }}/$filename/ --out dist/$filename
             pnpm slidev build "$file" --base /${{ github.event.repository.name }}/$filename/ --out dist/$filename --with-clicks
 
             # 2. Export the downloadable PDF
             # Added --wait 1500 to give the SPA an extra 1.5 seconds to hydrate fonts/components
-            pnpm slidev export "$file" --output dist/$filename.pdf --wait 1500
             pnpm slidev export "$file" --output dist/$filename.pdf --wait 1500 --with-clicks
 
             # 3. Append links to the index file
