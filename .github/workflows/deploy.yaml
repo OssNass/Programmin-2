@@ -40,8 +40,8 @@ jobs:
 
       - name: Install Main Dependencies
         run: |
-          pnpm install --no-workspaces
-          cd slidev-theme-penguin-rtl && pnpm install --no-workspaces
+          pnpm install
+          cd slidev-theme-penguin-rtl && pnpm install
 
 
       - name: Install Playwright Browsers (for PDF Export)
