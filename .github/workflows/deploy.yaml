@@ -45,7 +45,7 @@ jobs:
 
 
       - name: Install Playwright Browsers (for PDF Export)
-        run: pnpm exec playwright install --with-deps chromium
+        run: pnpm install playwright && pnpm exec playwright install --with-deps chromium
 
       - name: Build Slidev Markdown files
         run: |
